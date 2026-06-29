@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.split{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+
+.panel{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    transition: flex 0.5s ease;
+}
+
+.panel.left{
+    background-image: url(/legia.jpg);
+    image-rendering: optimizeQuality;
+    background-size: cover;
+    background-color: #1a1b2e;
+    color: #e8eef4;
+}
+
+
+.panel.right{
+    background-image: url(/sung.jpg);
+    background-color: white;
+    background-repeat: no-repeat;
+    color: #2d3a26; 
+}
+
+.left:hover{
+    background-image: url(/legia.jpg);
+    flex: 2;
+}
+
+.split:has(.left:hover) .right{
+    flex : 0.8;
+}
+
+.right:hover{
+    background-image: url(/sung.jpg);
+    flex: 2;
+}
+
+
+.split:has(.right:hover) .left{
+    flex: 0.8;
+}
+
+.content{
+    max-width: 320px;
+    text-align: center;
+}
+
+.content h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.content p{
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 24px;
+}
+
+.btn{
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.panel.left .btn{
+    background: #fff;
+    color: #1a1b2e;
+    color: #55524e;
+    border: 2px solid#1a1b2e;
+}
+
+@media(max-width: 768){
+    .split{
+        flex-direction: column;
+    }
+
+
+    .panel{
+        flex: 1;
+        min-height: 50vh;
+    }
+
+
+    .left:hover,
+    .right:hover,
+    .split:has(.left:hover) .right,
+    .split:has(.right:hover) .left{
+        flex: 1;
+    }
+
+    .content h2{
+        font-size: 2rem;
+    }
+}
+
